@@ -1,50 +1,98 @@
-<div style="margin: 16px 32px">
-  <h3>Flights from Bengaluru to Amsterdam</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-  <ul id="flights"></ul>
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
 
-  <div style="display: flex">
-    <!-- 1 stop -->
-    <input type="checkbox" id="stops-1" style="margin-right: 8px" />
-    <label for="stops-1" onclick="toggleStop('one')">1 stop</label>
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
 
-    <!-- 2 stops -->
-    <input type="checkbox" id="stops-2" style="margin-left: 16px; margin-right: 8px" />
-    <label for="stops-2" onclick="toggleStop('two')">2 stops</label>
-  </div>
-</div>
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        select,
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
 
-<script>
-  let flights = [
-    { airline: "Air India", stops: 0 },
-    { airline: "SriLankan Airlines", stops: 2 },
-    { airline: "British Airways", stops: 1 },
-    { airline: "Etihad Airways", stops: 1 },
-    { airline: "Thai Airways", stops: 2 },
-    { airline: "Singapore Air", stops: 2 },
-    { airline: "Air France", stops: 2 },
-    { airline: "Qatar Airways", stops: 1 },
-    { airline: "Lufthansa", stops: 1 },
-  ]
+        input[type="checkbox"] {
+            margin-right: 6px;
+            vertical-align: middle;
+        }
 
-  // Event Handling
-  let selectedStops = { one: false, two: false };
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
 
-  let toggleStop = (key) => {
-    selectedStops[key] = !selectedStops[key];
-    render();
-  };
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
 
-  // View
-  let createListItem = (item) => "<li>" + item.airline + "</li>";
+    <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
 
-  let htmlView = (items) => items.map(createListItem).join("\n");
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
 
-  let render = () => {
-    let view = htmlView(flights);
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
 
-    document.getElementById("flights").innerHTML = view;
-  };
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword">
 
-  render();
-</script>
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob">
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+            <option value="canada">Canada</option>
+            <option value="australia">Australia</option>
+            <option value="India">India</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <input type="checkbox" id="acceptTerms" name="acceptTerms">
+        <label for="acceptTerms">Accept Terms & Conditions</label>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
